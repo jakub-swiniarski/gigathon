@@ -17,8 +17,6 @@ namespace mg {
         MaskMatrixType mask_matrix;
 
     public:
-        static constexpr CardType error_card = -1;
-
         Board(UI width, UI height);
 
         CardMatrixType generate_card_matrix(UI width, UI height) const;

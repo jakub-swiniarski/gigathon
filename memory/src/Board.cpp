@@ -34,9 +34,6 @@ mg::CardMatrixType mg::Board::generate_card_matrix(UI width, UI height) const {
 }
 
 mg::CardType mg::Board::get_card(UI x, UI y) const {
-    if (x >= matrix_width
-     || y >= matrix_height)
-        return error_card;
     return card_matrix[y][x];
 }
 

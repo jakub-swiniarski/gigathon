@@ -44,3 +44,7 @@ bool mg::Board::get_mask(UI x, UI y) const {
 void mg::Board::unmask_card(UI x, UI y) {
     mask_matrix[y][x] = true;
 }
+
+void mg::Board::mask_card(UI x, UI y) {
+    mask_matrix[y][x] = false;
+}

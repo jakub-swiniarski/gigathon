@@ -23,6 +23,7 @@ namespace mg {
         CardType       get_card(UI x, UI y) const;
         bool           get_mask(UI x, UI y) const;
         void           unmask_card(UI x, UI y);
+        void           mask_card(UI x, UI y);
     };
 }
 

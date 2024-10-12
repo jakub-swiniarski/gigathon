@@ -58,3 +58,11 @@ void mg::UserInterface::print_board(const Board& board) const {
         std::cout << '\n';
     }
 }
+
+void mg::UserInterface::print_equal_position_warning(void) const {
+    std::cout << "Wprowadziles takie same pozycje. ";
+}
+
+void mg::UserInterface::print_whose_turn(int index) const {
+    std::cout << "Teraz kolej gracza nr " << index << ".\n";
+}

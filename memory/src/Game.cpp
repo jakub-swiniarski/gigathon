@@ -26,9 +26,9 @@ void mg::Game::run(void) {
             board.unmask_card(x1, y1);
             board.unmask_card(x2, y2);
             user_interface.print_board(board);
-            if (board.get_card(x1, y1) == board.get_card(x2, y2)) {
+            if (board.get_card(x1, y1) == board.get_card(x2, y2))
                 players[i].update_score();
-            } else {
+            else {
                 board.mask_card(x1, y1);
                 board.mask_card(x2, y2);
             }

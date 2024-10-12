@@ -3,27 +3,25 @@
 
 #include <vector>
 
-#include "common.hpp"
-
 namespace mg {
     using CardType       = char;
     using CardMatrixType = std::vector<std::vector<CardType>>;
     using MaskMatrixType = std::vector<std::vector<bool>>;
 
     class Board {
-        const UI matrix_width;
-        const UI matrix_height;
+        const int matrix_width;
+        const int matrix_height;
         CardMatrixType card_matrix;
         MaskMatrixType mask_matrix;
 
     public:
-        Board(UI width, UI height);
+        Board(int width, int height);
 
-        CardMatrixType generate_card_matrix(UI width, UI height) const;
-        CardType       get_card(UI x, UI y) const;
-        bool           get_mask(UI x, UI y) const;
-        void           unmask_card(UI x, UI y);
-        void           mask_card(UI x, UI y);
+        CardMatrixType generate_card_matrix(int width, int height) const;
+        CardType       get_card(int x, int y) const;
+        bool           get_mask(int x, int y) const;
+        void           unmask_card(int x, int y);
+        void           mask_card(int x, int y);
     };
 }
 

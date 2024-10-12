@@ -3,7 +3,7 @@
 mg::Player::Player(void)
     : score(0) {}
 
-mg::UI mg::Player::get_score(void) const {
+int mg::Player::get_score(void) const {
     return score;
 }
 

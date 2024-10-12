@@ -11,7 +11,7 @@ void mg::Game::run(void) {
     is_running = true;
     while (is_running) {
         for (int i = 0; i < n_players; i++) {
-            system("clear"); // TODO: check system, clear command in common.hpp
+            system("clear"); // TODO: check system, const cmd_clear
             user_interface.print_whose_turn(i);
             user_interface.print_board(board);
             auto [x1, y1] = user_interface.input_card_position();

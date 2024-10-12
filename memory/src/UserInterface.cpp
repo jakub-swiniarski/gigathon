@@ -22,8 +22,8 @@ mg::Board mg::UserInterface::input_board(void) {
     return Board(board_width, board_height);
 }
 
-void mg::UserInterface::start_game(void) const {
-    std::cout << "Wcisnij dowolny przycisk, aby rozpoczac gre...\n";
+void mg::UserInterface::wait_for_input(void) const {
+    std::cout << "Wcisnij dowolny przycisk, aby kontynuowac...\n";
     std::cin.get();
     std::cin.get();
 }

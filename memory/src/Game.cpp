@@ -4,7 +4,7 @@
 void mg::Game::run(void) {
     Board board = user_interface.input_board();
     Player players[2];
-    user_interface.start_game();
+    user_interface.wait_for_input();
 
     is_running = true;
     while (is_running) {

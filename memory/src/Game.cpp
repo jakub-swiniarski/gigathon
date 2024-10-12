@@ -5,12 +5,12 @@
 
 void mg::Game::run(void) {
     Board board = user_interface.input_board();
-    Player players[2];
+    Player players[n_players];
     user_interface.wait_for_input();
 
     is_running = true;
     while (is_running) {
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < n_players; i++) {
             system("clear"); // TODO: check system, clear command in common.hpp
             user_interface.print_whose_turn(i);
             user_interface.print_board(board);

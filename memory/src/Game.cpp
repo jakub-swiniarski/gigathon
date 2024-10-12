@@ -8,6 +8,7 @@ void mg::Game::run(void) {
 
     is_running = true;
     while (is_running) {
+        user_interface.print_board(board);
         auto [x1, y1] = user_interface.input_card_position();
         auto [x2, y2] = user_interface.input_card_position();
         quit();

@@ -12,8 +12,9 @@ namespace mg {
         
     public:
         Board                input_board(void);
-        void                 wait_for_input(void) const;
         std::pair<int, int>  input_card_position(void) const;
+        void                 wait_for_input(void) const;
+        void                 print_board(const Board& board) const;
     };
 }
 

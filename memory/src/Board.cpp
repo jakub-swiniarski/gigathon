@@ -37,6 +37,10 @@ mg::CardType mg::Board::get_card(UI x, UI y) const {
     return card_matrix[y][x];
 }
 
+bool mg::Board::get_mask(UI x, UI y) const {
+    return mask_matrix[y][x];
+}
+
 void mg::Board::unmask_card(UI x, UI y) {
     mask_matrix[y][x] = true;
 }

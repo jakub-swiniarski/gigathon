@@ -21,6 +21,7 @@ namespace mg {
 
         CardMatrixType generate_card_matrix(UI width, UI height) const;
         CardType       get_card(UI x, UI y) const;
+        bool           get_mask(UI x, UI y) const;
         void           unmask_card(UI x, UI y);
     };
 }

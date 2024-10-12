@@ -22,12 +22,6 @@ mg::Board mg::UserInterface::input_board(void) {
     return Board(board_width, board_height);
 }
 
-void mg::UserInterface::wait_for_input(void) const {
-    std::cout << "Wcisnij dowolny przycisk, aby kontynuowac...\n";
-    std::cin.get();
-    std::cin.get();
-}
-
 std::pair<int, int> mg::UserInterface::input_card_position(void) const {
     int x, y;
     std::cout << "Wprowadz pozycje karty (x, y): ";
@@ -45,4 +39,22 @@ std::pair<int, int> mg::UserInterface::input_card_position(void) const {
 
 
     return { x, y };
+}
+
+void mg::UserInterface::wait_for_input(void) const {
+    std::cout << "Wcisnij dowolny przycisk, aby kontynuowac...\n";
+    std::cin.get();
+    std::cin.get();
+}
+
+void mg::UserInterface::print_board(const Board& board) const {
+    for (int y = 0; y < board_height; y++) {
+        for (int x = 0; x < board_width; x++) {
+            if (board.get_mask(x, y))
+                std::cout << board.get_card(x, y);
+            else
+                std::cout << '#';
+        }
+        std::cout << '\n';
+    }
 }

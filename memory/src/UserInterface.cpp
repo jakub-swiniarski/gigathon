@@ -3,7 +3,7 @@
 #include "UserInterface.hpp"
 #include "Board.hpp"
 
-mg::Board mg::UserInterface::input_board(void) {
+mg::Board mg::UserInterface::input_board(void) const {
     int width, height;
     std::cout << "Wprowadz rozmiar planszy (2 liczby oddzielone spacja): ";
     std::cin >> width >> height;
@@ -21,4 +21,10 @@ mg::Board mg::UserInterface::input_board(void) {
     std::cout << "Utworzono plansze o rozmiarze " << width << " x " << height << "!\n\n";
 
     return Board(width, height);
+}
+
+void mg::UserInterface::start_game(void) const {
+    std::cout << "Wcisnij dowolny przycisk, aby rozpoczac gre...\n";
+    std::cin.get();
+    std::cin.get();
 }

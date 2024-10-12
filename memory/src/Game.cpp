@@ -1,10 +1,14 @@
+#include <iostream>
+
 #include "Game.hpp"
 
 void mg::Game::run(void) {
     Board board = user_interface.input_board();
+    user_interface.start_game();
 
     is_running = true;
     while (is_running) {
+        std::cout << "Zaczynamy!\n";
         quit();
     }
 }

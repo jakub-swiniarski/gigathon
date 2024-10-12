@@ -7,7 +7,8 @@ namespace mg {
     class UserInterface {
         
     public:
-        Board input_board(void);
+        Board input_board(void) const;
+        void  start_game(void) const;
     };
 }
 

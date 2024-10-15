@@ -70,3 +70,14 @@ void mg::UserInterface::print_equal_position_warning(void) const {
 void mg::UserInterface::print_whose_turn(int index) const {
     std::cout << "Teraz kolej gracza nr " << index << ".\n";
 }
+
+void mg::UserInterface::print_summary(const Player* players) const {
+    if (players[0].get_score() == players[1].get_score())
+        std::cout << "Remis!\n";
+    else if (players[0].get_score() > players[1].get_score())
+        std::cout << "Wygral gracz nr 0.\n";
+    else
+        std::cout << "Wygral gracz nr 1.\n";
+    for (int i = 0; i < 2; i++)
+        std::cout << "Punkty gracza nr " << i << ": " << players[i].get_score() << '\n';
+}

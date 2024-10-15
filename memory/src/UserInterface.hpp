@@ -4,6 +4,7 @@
 #include <utility>
 
 #include "Board.hpp"
+#include "Player.hpp"
 
 namespace mg {
     class UserInterface {
@@ -17,6 +18,7 @@ namespace mg {
         void                 print_board(const Board& board) const;
         void                 print_equal_position_warning(void) const;
         void                 print_whose_turn(int index) const;
+        void                 print_summary(const Player* players) const ;
     };
 }
 

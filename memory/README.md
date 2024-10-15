@@ -1,6 +1,6 @@
 # Memory
 ## Cel gry
-Gra polega na odnalezieniu wszystkich par kart o tych samych symbolach.
+Gra polega na odnalezieniu wszystkich par kart o tych samych symbolach. Gra jest dwuosobowa.
 
 ## Wymagania wstępne
 - Kompilator C++

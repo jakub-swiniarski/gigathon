@@ -1,7 +1,17 @@
+#include <cstdlib>
+#include <iostream>
+
 #include "Game.hpp"
 
 int main(void) {
-    mg::Game game;
+    try {
+        mg::Game game;
+    } catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+        return EXIT_FAILURE;
+    } catch (...) {
+        throw std::runtime_error("Unknown error.");
+    }
 
-    return 0;
+    return EXIT_SUCCESS;
 }

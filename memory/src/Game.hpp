@@ -8,8 +8,6 @@ namespace mg {
         mg::UserInterface user_interface;
         bool is_running                = false;
 
-        static constexpr int n_players = 2;
-
         void run(void);
 
     public:

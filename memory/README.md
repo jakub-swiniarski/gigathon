@@ -27,4 +27,16 @@ Na początku program poprosi nas o podanie rozmiaru planszy. Należy podać par�
 ```shell
 4 4
 ```
-Pierwsza liczba oznacza szerokość, a druga - wysokość.
+Pierwsza liczba oznacza szerokość, a druga - wysokość. <br>
+Następnie gracze na zmianę podają współrzędne kart, które chcą sprawdzić. Współrzędne karty podaje się w taki sam sposób, jak rozmiar planszy.
+```shell
+1 2
+```
+Pierwsza liczba oznacza współrzędną x, a druga - współrzędną y. Karta w lewym górnym rogu planszy ma współrzędne (0, 0). Karta (1, 2) została oznaczona literą "O":
+```shell
+####
+####
+#O##
+####
+```
+Wygrywa gracz, który znajdzie najwięcej par kart.

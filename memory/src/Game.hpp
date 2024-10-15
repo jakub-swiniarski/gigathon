@@ -6,7 +6,7 @@
 namespace mg {
     class Game {
         mg::UserInterface user_interface;
-        bool is_running                = false;
+        bool is_running = false;
 
         void run(void);
 

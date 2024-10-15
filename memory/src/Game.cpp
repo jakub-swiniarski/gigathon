@@ -11,7 +11,7 @@ void mg::Game::run(void) {
     is_running = true;
     while (is_running) {
         for (int i = 0; i < n_players; i++) {
-            system("clear"); // TODO: check system, const cmd_clear
+            cmd_clear();
             user_interface.print_whose_turn(i);
             user_interface.print_board(board);
             auto [x1, y1] = user_interface.input_card_position(board);
@@ -43,6 +43,14 @@ void mg::Game::run(void) {
 mg::Game::Game(void) {
     run();
     // TODO: display quit message
+}
+
+void mg::Game::cmd_clear(void) {
+#ifdef _WIN32
+    std::system("cls");
+#else
+    std::system("clear");
+#endif // _WIN32
 }
 
 void mg::Game::quit(void) {

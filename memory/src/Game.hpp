@@ -7,6 +7,7 @@ namespace mg {
     class Game {
         mg::UserInterface user_interface;
         bool is_running                = false;
+
         static constexpr int n_players = 2;
 
         void run(void);
@@ -14,6 +15,7 @@ namespace mg {
     public:
         Game(void);
         
+        void cmd_clear(void);
         void quit(void);
     };
 }

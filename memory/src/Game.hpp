@@ -17,6 +17,7 @@ namespace mg {
         
         void cmd_clear(void);
         void quit(void);
+        // TODO: saving and loading game
     };
 }
 

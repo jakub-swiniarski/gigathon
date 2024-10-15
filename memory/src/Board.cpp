@@ -10,10 +10,10 @@ mg::Board::Board(int width, int height)
     card_matrix = generate_card_matrix(width, height);
 }
 
-mg::CardMatrixType mg::Board::generate_card_matrix(int width, int height) const {
-    CardType              cur_card = 'A';
-    CardMatrixType        matrix(height, std::vector<CardType>(width));
-    std::vector<CardType> flat_matrix(height * width);
+mg::CardMatrix mg::Board::generate_card_matrix(int width, int height) const {
+    char        cur_card = 'A';
+    CardMatrix  matrix(height, std::string(width, 0));
+    std::string flat_matrix(height * width, 0);
 
     for (int x = 0; x < (int)flat_matrix.size(); x++) {
         flat_matrix[x] = cur_card;
@@ -33,7 +33,7 @@ mg::CardMatrixType mg::Board::generate_card_matrix(int width, int height) const 
     return matrix;
 }
 
-mg::CardType mg::Board::get_card(int x, int y) const {
+char mg::Board::get_card(int x, int y) const {
     return card_matrix[y][x];
 }
 

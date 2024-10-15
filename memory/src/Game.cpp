@@ -35,6 +35,7 @@ void mg::Game::run(void) {
                 quit();
                 cmd_clear();
                 user_interface.print_summary(players);
+                break;
             } else
                 user_interface.wait_for_input();
         }

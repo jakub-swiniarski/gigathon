@@ -22,7 +22,7 @@ mg::Board mg::UserInterface::input_board(void) {
     return Board(board_width, board_height);
 }
 
-std::pair<int, int> mg::UserInterface::input_card_position(void) const {
+std::pair<int, int> mg::UserInterface::input_card_position(const Board& board) const {
     int x, y;
     std::cout << "Wprowadz pozycje karty (x, y): ";
     std::cin >> x >> y;    
@@ -37,6 +37,10 @@ std::pair<int, int> mg::UserInterface::input_card_position(void) const {
         std::cin >> x >> y;
     }
 
+    if (board.get_mask(x, y)) {
+        std::cout << "Karta zostala juz dopasowana. Wprowadz pozycje jeszcze raz: ";
+        std::cin >> x >> y;
+    }
 
     return { x, y };
 }
@@ -60,7 +64,7 @@ void mg::UserInterface::print_board(const Board& board) const {
 }
 
 void mg::UserInterface::print_equal_position_warning(void) const {
-    std::cout << "Wprowadziles takie same pozycje. ";
+    std::cout << "Wprowadzono takie same pozycje. ";
 }
 
 void mg::UserInterface::print_whose_turn(int index) const {

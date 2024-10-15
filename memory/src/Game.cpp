@@ -14,12 +14,11 @@ void mg::Game::run(void) {
             system("clear"); // TODO: check system, const cmd_clear
             user_interface.print_whose_turn(i);
             user_interface.print_board(board);
-            auto [x1, y1] = user_interface.input_card_position();
-            auto [x2, y2] = user_interface.input_card_position();
-            // TODO: check if card is not alr unmasked
+            auto [x1, y1] = user_interface.input_card_position(board);
+            auto [x2, y2] = user_interface.input_card_position(board);
             while (x1 == x2 && y1 == y2) {
                 user_interface.print_equal_position_warning();
-                auto new_pair = user_interface.input_card_position();
+                auto new_pair = user_interface.input_card_position(board);
                 x2 = new_pair.first;
                 y2 = new_pair.second;
             }

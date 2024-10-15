@@ -8,7 +8,7 @@ Gra polega na odnalezieniu wszystkich par kart o tych samych symbolach.
 Program został przetestowany na systemie Gentoo GNU/Linux przy użyciu G++ 13.3.1 i CMake 3.30.2.
 
 ## Kompilacja programu
-Należy wykonać następujące polecenia w katalogu projektu:
+Należy wykonać następujące polecenia w katalogu projektu: <br>
 Linux
 ```shell
 cmake .

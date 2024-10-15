@@ -21,3 +21,10 @@ cmake .
 cmake --build .
 .\memory.exe
 ```
+
+## Instrukcja gry
+Na początku program poprosi nas o podanie rozmiaru planszy. Należy podać parę dodatnich liczb, których iloczyn jest liczbą parzystą, np.:
+```shell
+4 4
+```
+Pierwsza liczba oznacza szerokość, a druga - wysokość.

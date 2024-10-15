@@ -41,6 +41,10 @@ bool mg::Board::get_mask(int x, int y) const {
     return mask_matrix[y][x];
 }
 
+int mg::Board::get_card_count(void) const {
+    return matrix_width * matrix_height;
+}
+
 void mg::Board::unmask_card(int x, int y) {
     mask_matrix[y][x] = true;
 }

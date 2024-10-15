@@ -20,6 +20,7 @@ namespace mg {
         CardMatrixType generate_card_matrix(int width, int height) const;
         CardType       get_card(int x, int y) const;
         bool           get_mask(int x, int y) const;
+        int            get_card_count(void) const;
         void           unmask_card(int x, int y);
         void           mask_card(int x, int y);
     };

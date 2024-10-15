@@ -32,7 +32,11 @@ void mg::Game::run(void) {
                 board.mask_card(x1, y1);
                 board.mask_card(x2, y2);
             }
-            user_interface.wait_for_input();
+            if (players[0].get_score() * 2 + players[1].get_score() * 2 >= board.get_card_count()) {
+                quit();
+                // ui info
+            } else
+                user_interface.wait_for_input();
         }
     }
 }

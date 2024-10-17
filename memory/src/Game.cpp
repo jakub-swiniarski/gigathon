@@ -3,9 +3,12 @@
 
 #include "Game.hpp"
 #include "Board.hpp"
+#include "GameState.hpp"
 #include "Player.hpp"
 
 void mg::Game::run(void) {
+    GameState game_state("stan_gry.txt");
+
     if (user_interface.input_load_game()) {
         std::cout << "ZALADOWANO GRE!\n";
     }
@@ -19,7 +22,7 @@ void mg::Game::run(void) {
             cmd_clear();
             
             if (user_interface.input_save_game()) {
-                board.save_to_file(filepath_game_state);
+                game_state.save(board, players, i);
             }
             
             user_interface.print_points(players);
@@ -56,8 +59,7 @@ void mg::Game::run(void) {
     }
 }
 
-mg::Game::Game(void) 
-    : filepath_game_state("stan_gry.txt") {
+mg::Game::Game(void) {
     run();
     // TODO: display quit message
 }

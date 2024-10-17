@@ -35,25 +35,6 @@ mg::CardMatrix mg::Board::generate_card_matrix(Vector size) const {
     return matrix;
 }
 
-void mg::Board::load_from_file(const std::string& filename) {
-// TODO
-}
-
-void mg::Board::save_to_file(const std::string& filename) {
-    std::ofstream file(filename);
-
-    file << matrix_width << ' ' << matrix_height << '\n';
-    for (int y = 0; y < matrix_height; y++) {
-        file << card_matrix[y];
-        file << '\n';
-    }
-    for (int y = 0; y < matrix_height; y++) {
-        for (int x = 0; x < matrix_width; x++) 
-            file << mask_matrix[y][x];
-        file << '\n';
-    }
-}
-
 char mg::Board::get_card(Vector position) const {
     return card_matrix[position.second][position.first];
 }

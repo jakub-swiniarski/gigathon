@@ -6,7 +6,6 @@
 namespace mg {
     class Game {
         mg::UserInterface user_interface;
-        const std::string filepath_game_state;
         bool              is_running = false;
 
         void run(void);

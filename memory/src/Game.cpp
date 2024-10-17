@@ -21,11 +21,7 @@ void mg::Game::run(void) {
     is_running = true;
     while (is_running) {
         cmd_clear();
-        
-        if (user_interface.input_save_game()) {
-            game_state_manager.save(board, players, whose_turn);
-        }
-        
+     
         user_interface.print_points(players);
         user_interface.print_whose_turn(whose_turn);
         user_interface.print_board(board);
@@ -54,10 +50,12 @@ void mg::Game::run(void) {
             cmd_clear();
             user_interface.print_summary(players);
             break;
-        } else
-            user_interface.wait_for_input();
+        }
 
         whose_turn = (whose_turn + 1) % 2;
+
+        if (user_interface.input_save_game())
+            game_state_manager.save(board, players, whose_turn);
     }
 }
 

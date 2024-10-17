@@ -13,6 +13,8 @@ void mg::Game::run(void) {
     Player players[2];
     user_interface.wait_for_input();
 
+    board.save_to_file("LOL.txt");
+
     is_running = true;
     while (is_running) {
         for (int i = 0; i < 2; i++) {

@@ -13,15 +13,19 @@ void mg::Game::run(void) {
     Player players[2];
     user_interface.wait_for_input();
 
-    board.save_to_file("LOL.txt");
-
     is_running = true;
     while (is_running) {
         for (int i = 0; i < 2; i++) {
             cmd_clear();
+            
+            if (user_interface.input_save_game()) {
+                board.save_to_file("test.txt");
+            }
+            
             user_interface.print_points(players);
             user_interface.print_whose_turn(i);
             user_interface.print_board(board);
+
             mg::Vector positions[2];
             for (int i = 0; i < 2; i++)
                 positions[i] = user_interface.input_card_position(board);
@@ -29,15 +33,18 @@ void mg::Game::run(void) {
                 user_interface.print_equal_position_warning();
                 positions[1] = user_interface.input_card_position(board);
             }
+            
             for (int i = 0; i < 2; i++)
                 board.unmask_card(positions[i]);
             user_interface.print_board(board);
+            
             if (board.get_card(positions[0]) == board.get_card(positions[1]))
                 players[i].update_score();
             else {
                 for (int i = 0; i < 2; i++)
                     board.mask_card(positions[i]);
             }
+
             if (players[0].get_score() * 2 + players[1].get_score() * 2 >= board.get_card_count()) {
                 quit();
                 cmd_clear();

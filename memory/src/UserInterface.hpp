@@ -11,8 +11,11 @@ namespace mg {
         int board_width;
         int board_height;
         
+        bool                input_choice(std::string question) const;
+
     public:
         bool                input_load_game(void) const;
+        bool                input_save_game(void) const;
         Board               input_board(void);
         std::pair<int, int> input_card_position(const Board& board) const;
         void                print_board(const Board& board) const;

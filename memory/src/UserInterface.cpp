@@ -3,12 +3,12 @@
 #include "UserInterface.hpp"
 #include "Board.hpp"
 
-bool mg::UserInterface::input_load_game(void) const {
+bool mg::UserInterface::input_choice(std::string question) const {
     char input;
     int  choice = -1;
     
     while (choice == -1) {
-        std::cout << "Czy chcesz wczytac ostatnia gre? (T/N): ";
+        std::cout << question <<" (T/N): ";
         std::cin >> input;
         if (input == 'T'
          || input == 't')
@@ -23,6 +23,14 @@ bool mg::UserInterface::input_load_game(void) const {
     }
 
     return choice;
+}
+
+bool mg::UserInterface::input_load_game(void) const {
+    return input_choice("Czy chcesz wczytac ostatnia gre?");
+}
+
+bool mg::UserInterface::input_save_game(void) const {
+    return input_choice("Czy chcesz zapisac stan gry?");
 }
 
 mg::Board mg::UserInterface::input_board(void) {

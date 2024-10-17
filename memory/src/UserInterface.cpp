@@ -5,7 +5,7 @@
 
 bool mg::UserInterface::input_load_game(void) const {
     char input;
-    int choice = -1;
+    int  choice = -1;
     
     while (choice == -1) {
         std::cout << "Czy chcesz wczytac ostatnia gre? (T/N): ";

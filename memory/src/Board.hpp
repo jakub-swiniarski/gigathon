@@ -7,6 +7,7 @@
 namespace mg {
     using CardMatrix = std::vector<std::string>;
     using MaskMatrix = std::vector<std::vector<bool>>;
+    using Vector     = std::pair<int, int>;
 
     class Board {
         const int matrix_width;
@@ -15,14 +16,14 @@ namespace mg {
         MaskMatrix mask_matrix;
 
     public:
-        Board(int width, int height);
+        Board(Vector size);
 
-        CardMatrix generate_card_matrix(int width, int height) const;
-        char       get_card(int x, int y) const;
-        bool       get_mask(int x, int y) const;
+        CardMatrix generate_card_matrix(Vector size) const;
+        char       get_card(Vector position) const;
+        bool       get_mask(Vector position) const;
         int        get_card_count(void) const;
-        void       unmask_card(int x, int y);
-        void       mask_card(int x, int y);
+        void       unmask_card(Vector position);
+        void       mask_card(Vector position);
     };
 }
 

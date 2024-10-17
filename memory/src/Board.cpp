@@ -3,15 +3,16 @@
 
 #include "Board.hpp"
 
-mg::Board::Board(int width, int height) 
-    : matrix_width(width),
-      matrix_height(height),
-      mask_matrix(height, std::vector<bool>(width, false)) {
-    card_matrix = generate_card_matrix(width, height);
+mg::Board::Board(Vector size) 
+    : matrix_width(size.first),
+      matrix_height(size.second),
+      mask_matrix(size.second, std::vector<bool>(size.first, false)) {
+    card_matrix = generate_card_matrix(size);
 }
 
-mg::CardMatrix mg::Board::generate_card_matrix(int width, int height) const {
-    char        cur_card = 'A';
+mg::CardMatrix mg::Board::generate_card_matrix(Vector size) const {
+    auto        [width, height] = size;
+    char        cur_card        = 'A';
     CardMatrix  matrix(height, std::string(width, 0));
     std::string flat_matrix(height * width, 0);
 
@@ -33,22 +34,22 @@ mg::CardMatrix mg::Board::generate_card_matrix(int width, int height) const {
     return matrix;
 }
 
-char mg::Board::get_card(int x, int y) const {
-    return card_matrix[y][x];
+char mg::Board::get_card(Vector position) const {
+    return card_matrix[position.second][position.first];
 }
 
-bool mg::Board::get_mask(int x, int y) const {
-    return mask_matrix[y][x];
+bool mg::Board::get_mask(Vector position) const {
+    return mask_matrix[position.second][position.first];
 }
 
 int mg::Board::get_card_count(void) const {
     return matrix_width * matrix_height;
 }
 
-void mg::Board::unmask_card(int x, int y) {
-    mask_matrix[y][x] = true;
+void mg::Board::unmask_card(Vector position) {
+    mask_matrix[position.second][position.first] = true;
 }
 
-void mg::Board::mask_card(int x, int y) {
-    mask_matrix[y][x] = false;
+void mg::Board::mask_card(Vector position) {
+    mask_matrix[position.second][position.first] = false;
 }

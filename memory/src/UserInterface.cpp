@@ -41,7 +41,7 @@ mg::Board mg::UserInterface::input_board(void) {
 
     std::cout << "Utworzono plansze o rozmiarze " << board_width << " x " << board_height << "!\n\n";
 
-    return Board(board_width, board_height);
+    return Board({ board_width, board_height });
 }
 
 std::pair<int, int> mg::UserInterface::input_card_position(const Board& board) const {
@@ -59,7 +59,7 @@ std::pair<int, int> mg::UserInterface::input_card_position(const Board& board) c
         std::cin >> x >> y;
     }
 
-    if (board.get_mask(x, y)) {
+    if (board.get_mask({ x, y })) {
         std::cout << "Karta zostala juz dopasowana. Wprowadz pozycje jeszcze raz: ";
         std::cin >> x >> y;
     }
@@ -70,8 +70,8 @@ std::pair<int, int> mg::UserInterface::input_card_position(const Board& board) c
 void mg::UserInterface::print_board(const Board& board) const {
     for (int y = 0; y < board_height; y++) {
         for (int x = 0; x < board_width; x++) {
-            if (board.get_mask(x, y))
-                std::cout << board.get_card(x, y);
+            if (board.get_mask({ x, y }))
+                std::cout << board.get_card({ x, y });
             else
                 std::cout << '#';
         }

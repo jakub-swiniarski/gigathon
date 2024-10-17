@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include "Game.hpp"
+#include "Board.hpp"
 #include "Player.hpp"
 
 void mg::Game::run(void) {
@@ -18,22 +19,21 @@ void mg::Game::run(void) {
             cmd_clear();
             user_interface.print_whose_turn(i);
             user_interface.print_board(board);
-            auto [x1, y1] = user_interface.input_card_position(board);
-            auto [x2, y2] = user_interface.input_card_position(board);
-            while (x1 == x2 && y1 == y2) {
+            mg::Vector positions[2];
+            for (int i = 0; i < 2; i++)
+                positions[i] = user_interface.input_card_position(board);
+            while (positions[0] == positions[1]) {
                 user_interface.print_equal_position_warning();
-                auto new_pair = user_interface.input_card_position(board);
-                x2 = new_pair.first;
-                y2 = new_pair.second;
+                positions[1] = user_interface.input_card_position(board);
             }
-            board.unmask_card(x1, y1);
-            board.unmask_card(x2, y2);
+            for (int i = 0; i < 2; i++)
+                board.unmask_card(positions[i]);
             user_interface.print_board(board);
-            if (board.get_card(x1, y1) == board.get_card(x2, y2))
+            if (board.get_card(positions[0]) == board.get_card(positions[1]))
                 players[i].update_score();
             else {
-                board.mask_card(x1, y1);
-                board.mask_card(x2, y2);
+                for (int i = 0; i < 2; i++)
+                    board.mask_card(positions[i]);
             }
             if (players[0].get_score() * 2 + players[1].get_score() * 2 >= board.get_card_count()) {
                 quit();

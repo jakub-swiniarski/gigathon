@@ -3,15 +3,6 @@
 
 #include "Board.hpp"
 
-mg::Board::Board(Vector size, bool make_random) 
-    : matrix_width(size.first),
-      matrix_height(size.second),
-      card_matrix(size.second, std::string(size.first, 0)),
-      mask_matrix(size.second, std::vector<bool>(size.first, false)) {
-    if (make_random)
-        card_matrix = generate_card_matrix(size);
-}
-
 mg::CardMatrix mg::Board::generate_card_matrix(Vector size) const {
     auto        [width, height] = size;
     char        cur_card        = 'A';
@@ -34,6 +25,25 @@ mg::CardMatrix mg::Board::generate_card_matrix(Vector size) const {
             matrix[y][x] = flat_matrix[x * width + y];
 
     return matrix;
+}
+
+void mg::Board::resize(Vector size) {
+    card_matrix.resize(size.second);
+    mask_matrix.resize(size.second);
+
+    for (auto& row : card_matrix)
+        row.resize(size.first);
+    for (auto& row : mask_matrix)
+        row.resize(size.first);
+}
+
+mg::Board::Board(Vector size, bool make_random) 
+    : matrix_width(size.first),
+      matrix_height(size.second),
+      card_matrix(size.second, std::string(size.first, 0)),
+      mask_matrix(size.second, std::vector<bool>(size.first, false)) {
+    if (make_random)
+        card_matrix = generate_card_matrix(size);
 }
 
 char mg::Board::get_card(Vector position) const {

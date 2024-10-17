@@ -20,6 +20,7 @@ namespace mg {
         MaskMatrix mask_matrix;
 
         CardMatrix generate_card_matrix(Vector size) const;
+        void       resize(Vector size);
 
     public:
         Board(Vector size, bool make_random);

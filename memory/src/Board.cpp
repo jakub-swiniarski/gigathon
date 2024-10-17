@@ -28,13 +28,16 @@ mg::CardMatrix mg::Board::generate_card_matrix(Vector size) const {
 }
 
 void mg::Board::resize(Vector size) {
-    card_matrix.resize(size.second);
-    mask_matrix.resize(size.second);
+    matrix_width  = size.first;
+    matrix_height = size.second;
+
+    card_matrix.resize(matrix_height);
+    mask_matrix.resize(matrix_height);
 
     for (auto& row : card_matrix)
-        row.resize(size.first);
+        row.resize(matrix_width);
     for (auto& row : mask_matrix)
-        row.resize(size.first);
+        row.resize(matrix_width);
 }
 
 mg::Board::Board(Vector size, bool make_random) 

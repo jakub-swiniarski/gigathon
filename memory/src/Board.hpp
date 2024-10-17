@@ -14,8 +14,8 @@ namespace mg {
     class Board {
         friend class mg::GameStateManager;
 
-        const int matrix_width;
-        const int matrix_height;
+        int matrix_width;
+        int matrix_height;
         CardMatrix card_matrix;
         MaskMatrix mask_matrix;
 

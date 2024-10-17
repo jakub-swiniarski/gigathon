@@ -3,6 +3,30 @@
 #include "UserInterface.hpp"
 #include "Board.hpp"
 
+void mg::UserInterface::input_load_game(void) const {
+    char input;
+    int choice = -1;
+    
+    while (choice == -1) {
+        std::cout << "Czy chcesz wczytac ostatnia gre? (T/N): ";
+        std::cin >> input;
+        if (input == 'T'
+         || input == 't')
+            choice = 1;
+        else if (input == 'N'
+              || input == 'n')
+            choice = 0;
+        else {
+            std::cout << "Nieprawidlowy wybor. ";
+            choice = -1;
+        }
+    }
+
+    if (choice == 1) {
+        std::cout << "PLACEHOLDER - Y\n";
+    }
+}
+
 mg::Board mg::UserInterface::input_board(void) {
     std::cout << "Wprowadz rozmiar planszy (2 liczby oddzielone spacja): ";
     std::cin >> board_width >> board_height;
@@ -45,12 +69,6 @@ std::pair<int, int> mg::UserInterface::input_card_position(const Board& board) c
     return { x, y };
 }
 
-void mg::UserInterface::wait_for_input(void) const {
-    std::cout << "Wcisnij dowolny przycisk, aby kontynuowac...\n";
-    std::cin.get();
-    std::cin.get();
-}
-
 void mg::UserInterface::print_board(const Board& board) const {
     for (int y = 0; y < board_height; y++) {
         for (int x = 0; x < board_width; x++) {
@@ -80,4 +98,10 @@ void mg::UserInterface::print_summary(const Player* players) const {
         std::cout << "Wygral gracz nr 1.\n";
     for (int i = 0; i < 2; i++)
         std::cout << "Punkty gracza nr " << i << ": " << players[i].get_score() << '\n';
+}
+
+void mg::UserInterface::wait_for_input(void) const {
+    std::cout << "Wcisnij dowolny przycisk, aby kontynuowac...\n";
+    std::cin.get();
+    std::cin.get();
 }

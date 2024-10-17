@@ -17,6 +17,7 @@ void mg::Game::run(void) {
     while (is_running) {
         for (int i = 0; i < 2; i++) {
             cmd_clear();
+            user_interface.print_points(players);
             user_interface.print_whose_turn(i);
             user_interface.print_board(board);
             mg::Vector positions[2];

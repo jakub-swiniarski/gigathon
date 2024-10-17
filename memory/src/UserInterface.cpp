@@ -83,6 +83,11 @@ void mg::UserInterface::print_equal_position_warning(void) const {
     std::cout << "Wprowadzono takie same pozycje. ";
 }
 
+void mg::UserInterface::print_points(const Player* players) const {
+    for (int i = 0; i < 2; i++)
+        std::cout << "Punkty gracza nr " << i << ": " << players[i].get_score() << '\n';
+}
+
 void mg::UserInterface::print_whose_turn(int index) const {
     std::cout << "Teraz kolej gracza nr " << index << ".\n";
 }
@@ -94,8 +99,7 @@ void mg::UserInterface::print_summary(const Player* players) const {
         std::cout << "Wygral gracz nr 0.\n";
     else
         std::cout << "Wygral gracz nr 1.\n";
-    for (int i = 0; i < 2; i++)
-        std::cout << "Punkty gracza nr " << i << ": " << players[i].get_score() << '\n';
+    print_points(players);
 }
 
 void mg::UserInterface::wait_for_input(void) const {

@@ -19,7 +19,7 @@ void mg::Game::run(void) {
             cmd_clear();
             
             if (user_interface.input_save_game()) {
-                board.save_to_file("test.txt");
+                board.save_to_file(filepath_game_state);
             }
             
             user_interface.print_points(players);
@@ -56,7 +56,8 @@ void mg::Game::run(void) {
     }
 }
 
-mg::Game::Game(void) {
+mg::Game::Game(void) 
+    : filepath_game_state("stan_gry.txt") {
     run();
     // TODO: display quit message
 }

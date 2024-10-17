@@ -19,8 +19,8 @@ namespace mg {
         Board(Vector size);
 
         CardMatrix generate_card_matrix(Vector size) const;
-        void       load_from_file(std::string filename);
-        void       save_to_file(std::string filename);
+        void       load_from_file(const std::string& filename);
+        void       save_to_file(const std::string& filename);
         char       get_card(Vector position) const;
         bool       get_mask(Vector position) const;
         int        get_card_count(void) const;

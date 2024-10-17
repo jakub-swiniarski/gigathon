@@ -6,7 +6,8 @@
 namespace mg {
     class Game {
         mg::UserInterface user_interface;
-        bool is_running = false;
+        const std::string filepath_game_state;
+        bool              is_running = false;
 
         void run(void);
         void cmd_clear(void);
@@ -14,7 +15,6 @@ namespace mg {
 
     public:
         Game(void);
-        // TODO: saving and loading game
     };
 }
 

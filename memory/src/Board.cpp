@@ -35,11 +35,11 @@ mg::CardMatrix mg::Board::generate_card_matrix(Vector size) const {
     return matrix;
 }
 
-void mg::Board::load_from_file(std::string filename) {
+void mg::Board::load_from_file(const std::string& filename) {
 // TODO
 }
 
-void mg::Board::save_to_file(std::string filename) {
+void mg::Board::save_to_file(const std::string& filename) {
     std::ofstream file(filename);
 
     file << matrix_width << ' ' << matrix_height << '\n';

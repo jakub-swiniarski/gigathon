@@ -49,7 +49,7 @@ mg::Board mg::UserInterface::input_board(void) {
 
     std::cout << "Utworzono plansze o rozmiarze " << board_width << " x " << board_height << "!\n\n";
 
-    return Board({ board_width, board_height });
+    return Board({ board_width, board_height }, true);
 }
 
 std::pair<int, int> mg::UserInterface::input_card_position(const Board& board) const {

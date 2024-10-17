@@ -1,14 +1,15 @@
 #include <algorithm>
-#include <fstream>
 #include <random>
 
 #include "Board.hpp"
 
-mg::Board::Board(Vector size) 
+mg::Board::Board(Vector size, bool make_random) 
     : matrix_width(size.first),
       matrix_height(size.second),
-      mask_matrix(size.second, std::vector<bool>(size.first, false)) {
-    card_matrix = generate_card_matrix(size);
+      mask_matrix(size.second, std::vector<bool>(size.first, false)),
+      card_matrix(size.second, std::string(size.first, 0)) {
+    if (make_random)
+        card_matrix = generate_card_matrix(size);
 }
 
 mg::CardMatrix mg::Board::generate_card_matrix(Vector size) const {

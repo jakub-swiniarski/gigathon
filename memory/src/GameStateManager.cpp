@@ -18,6 +18,10 @@ void mg::GameStateManager::save_board(std::ofstream& file, Board& board) {
 mg::GameStateManager::GameStateManager(std::string filepath)
     : filepath(filepath) {}
 
+void mg::GameStateManager::load(Board& board, Player* players, int& whose_turn) {
+
+}
+
 void mg::GameStateManager::save(Board& board, Player* players, int whose_turn) {
     std::ofstream file(filepath);
 

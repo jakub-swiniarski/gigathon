@@ -7,10 +7,10 @@ int main(void) {
     try {
         mg::Game game;
     } catch (const std::exception& e) {
-        std::cerr << "Error: " << e.what() << std::endl;
+        std::cerr << "Blad: " << e.what() << std::endl;
         return EXIT_FAILURE;
     } catch (...) {
-        throw std::runtime_error("Unknown error.");
+        throw std::runtime_error("Nieznany blad.");
     }
 
     return EXIT_SUCCESS;

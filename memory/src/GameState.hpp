@@ -3,12 +3,13 @@
 
 #include "Board.hpp"
 #include "Player.hpp"
+#include <fstream>
 
 namespace mg {
     class GameState {
         const std::string filepath;
 
-        void save_board(Board& board);
+        void save_board(std::ofstream& file, Board& board);
 
     public:
         GameState(std::string filepath);

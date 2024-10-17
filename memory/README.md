@@ -23,7 +23,9 @@ cmake --build .
 ```
 
 ## Instrukcja gry
-Na początku program poprosi nas o podanie rozmiaru planszy. Należy podać parę dodatnich liczb, których iloczyn jest liczbą parzystą, np.:
+Na początku program zapyta nas, czy chcemy wczytać zapisaną wcześniej grę. <br>
+Jeśli wybierzemy opcję "T", program wczyta stan gry z pliku "stan_gry.txt". <br>
+Jeśli jednak postanowimy rozpocząć nową grę, zostaniemy poproszeni o podanie rozmiaru planszy. Należy podać parę dodatnich liczb, których iloczyn jest liczbą parzystą, np.:
 ```shell
 4 4
 ```
@@ -39,4 +41,5 @@ Pierwsza liczba oznacza współrzędną x, a druga - współrzędną y. Karta w 
 #O##
 ####
 ```
+Po każdej turze program zapyta nas czy chcemy zapisać aktualny stan gry. Zostanie on zapisany w pliku "stan_gry.txt". <br>
 Wygrywa gracz, który znajdzie najwięcej par kart.

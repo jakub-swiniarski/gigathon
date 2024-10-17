@@ -1,8 +1,6 @@
 #ifndef GAMESTATEMANAGER_HPP
 #define GAMESTATEMANAGER_HPP
 
-#include <fstream>
-
 #include "Board.hpp"
 #include "Player.hpp"
 

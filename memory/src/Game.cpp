@@ -61,7 +61,6 @@ void mg::Game::run(void) {
 
 mg::Game::Game(void) {
     run();
-    // TODO: display quit message
 }
 
 void mg::Game::cmd_clear(void) {

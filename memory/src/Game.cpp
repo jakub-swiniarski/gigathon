@@ -1,5 +1,4 @@
 #include <cstdlib>
-#include <iostream>
 
 #include "Game.hpp"
 #include "Board.hpp"
@@ -8,12 +7,15 @@
 
 void mg::Game::run(void) {
     GameStateManager game_state_manager("stan_gry.txt");
+    Board            board({ 0, 0 }, false);
+    Player           players[2];
+    int              whose_turn = 0;
 
-    if (user_interface.input_load_game()) {
-        std::cout << "ZALADOWANO GRE!\n";
-    }
-    Board board = user_interface.input_board();
-    Player players[2];
+    if (user_interface.input_load_game())
+        game_state_manager.load(board, players, whose_turn);
+    else
+        board = user_interface.input_board();
+
     user_interface.wait_for_input();
 
     is_running = true;
@@ -30,15 +32,15 @@ void mg::Game::run(void) {
             user_interface.print_board(board);
 
             mg::Vector positions[2];
-            for (int i = 0; i < 2; i++)
-                positions[i] = user_interface.input_card_position(board);
+            for (int j = 0; j < 2; j++)
+                positions[j] = user_interface.input_card_position(board);
             while (positions[0] == positions[1]) {
                 user_interface.print_equal_position_warning();
                 positions[1] = user_interface.input_card_position(board);
             }
             
-            for (int i = 0; i < 2; i++)
-                board.unmask_card(positions[i]);
+            for (int j = 0; j < 2; j++)
+                board.unmask_card(positions[j]);
             user_interface.print_board(board);
             
             if (board.get_card(positions[0]) == board.get_card(positions[1]))

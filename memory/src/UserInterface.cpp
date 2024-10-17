@@ -34,22 +34,24 @@ bool mg::UserInterface::input_save_game(void) const {
 }
 
 mg::Board mg::UserInterface::input_board(void) {
+    int width, height;
+
     std::cout << "Wprowadz rozmiar planszy (2 liczby oddzielone spacja): ";
-    std::cin >> board_width >> board_height;
+    std::cin >> width >> height;
 
-    while (board_width <= 0 || board_height <= 0) {
+    while (width <= 0 || height <= 0) {
         std::cout << "Liczby powinny byc dodatnie. Wprowadz rozmiar jeszcze raz: ";
-        std::cin >> board_width >> board_height;
+        std::cin >> width >> height;
     }
 
-    while ((board_width * board_height) % 2 != 0) {
+    while ((width * height) % 2 != 0) {
         std::cout << "Laczna liczba pol powinna byc parzysta. Wprowadz rozmiar jeszcze raz: ";
-        std::cin >> board_width >> board_height;
+        std::cin >> width >> height;
     }
 
-    std::cout << "Utworzono plansze o rozmiarze " << board_width << " x " << board_height << "!\n\n";
+    std::cout << "Utworzono plansze o rozmiarze " << width << " x " << height << "!\n\n";
 
-    return Board({ board_width, board_height }, true);
+    return Board({ width, height }, true);
 }
 
 std::pair<int, int> mg::UserInterface::input_card_position(const Board& board) const {
@@ -62,7 +64,7 @@ std::pair<int, int> mg::UserInterface::input_card_position(const Board& board) c
         std::cin >> x >> y;
     }
 
-    while (x >= board_width || y >= board_height) {
+    while (x >= board.get_size().first || y >= board.get_size().second) {
         std::cout << "Wspolrzedne nie moga wykraczac poza plansze. Wprowadz pozycje jeszcze raz: ";
         std::cin >> x >> y;
     }
@@ -76,8 +78,8 @@ std::pair<int, int> mg::UserInterface::input_card_position(const Board& board) c
 }
 
 void mg::UserInterface::print_board(const Board& board) const {
-    for (int y = 0; y < board_height; y++) {
-        for (int x = 0; x < board_width; x++) {
+    for (int y = 0; y < board.get_size().second; y++) {
+        for (int x = 0; x < board.get_size().first; x++) {
             if (board.get_mask({ x, y }))
                 std::cout << board.get_card({ x, y });
             else

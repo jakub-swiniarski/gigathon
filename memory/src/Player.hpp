@@ -2,7 +2,11 @@
 #define PLAYER_HPP
 
 namespace mg {
+    class GameStateManager;
+
     class Player {
+        friend GameStateManager;
+
         int score;
 
     public:

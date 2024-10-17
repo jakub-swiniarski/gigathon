@@ -61,6 +61,10 @@ int mg::Board::get_card_count(void) const {
     return matrix_width * matrix_height;
 }
 
+mg::Vector mg::Board::get_size(void) const {
+    return { matrix_width, matrix_height };
+}
+
 void mg::Board::unmask_card(Vector position) {
     mask_matrix[position.second][position.first] = true;
 }

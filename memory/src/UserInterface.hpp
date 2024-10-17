@@ -8,9 +8,6 @@
 
 namespace mg {
     class UserInterface {
-        int board_width;
-        int board_height;
-        
         bool                input_choice(std::string question) const;
 
     public:

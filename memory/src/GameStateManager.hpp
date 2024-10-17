@@ -11,6 +11,7 @@ namespace mg {
     public:
         GameStateManager(std::string filepath);
         
+        void load(Board& board, Player* players, int& whose_turn) const;
         void save(Board& board, Player* players, int whose_turn) const;
     };
 }

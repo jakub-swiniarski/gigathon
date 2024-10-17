@@ -3,11 +3,11 @@
 
 #include "Game.hpp"
 #include "Board.hpp"
-#include "GameState.hpp"
+#include "GameStateManager.hpp"
 #include "Player.hpp"
 
 void mg::Game::run(void) {
-    GameState game_state("stan_gry.txt");
+    GameStateManager game_state_manager("stan_gry.txt");
 
     if (user_interface.input_load_game()) {
         std::cout << "ZALADOWANO GRE!\n";
@@ -22,7 +22,7 @@ void mg::Game::run(void) {
             cmd_clear();
             
             if (user_interface.input_save_game()) {
-                game_state.save(board, players, i);
+                game_state_manager.save(board, players, i);
             }
             
             user_interface.print_points(players);

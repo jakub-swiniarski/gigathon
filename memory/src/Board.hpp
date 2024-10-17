@@ -5,14 +5,14 @@
 #include <vector>
 
 namespace mg {
-    class GameState;
+    class GameStateManager;
 
     using CardMatrix = std::vector<std::string>;
     using MaskMatrix = std::vector<std::vector<bool>>;
     using Vector     = std::pair<int, int>;
 
     class Board {
-        friend class mg::GameState;
+        friend class mg::GameStateManager;
 
         const int matrix_width;
         const int matrix_height;

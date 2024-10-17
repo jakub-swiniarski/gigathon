@@ -1,10 +1,13 @@
 #include <cstdlib>
+#include <iostream>
 
 #include "Game.hpp"
 #include "Player.hpp"
 
 void mg::Game::run(void) {
-    user_interface.input_load_game();
+    if (user_interface.input_load_game()) {
+        std::cout << "ZALADOWANO GRE!\n";
+    }
     Board board = user_interface.input_board();
     Player players[2];
     user_interface.wait_for_input();

@@ -12,7 +12,7 @@ namespace mg {
         int board_height;
         
     public:
-        void                input_load_game(void) const;
+        bool                input_load_game(void) const;
         Board               input_board(void);
         std::pair<int, int> input_card_position(const Board& board) const;
         void                print_board(const Board& board) const;

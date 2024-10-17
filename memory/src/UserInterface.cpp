@@ -3,7 +3,7 @@
 #include "UserInterface.hpp"
 #include "Board.hpp"
 
-void mg::UserInterface::input_load_game(void) const {
+bool mg::UserInterface::input_load_game(void) const {
     char input;
     int choice = -1;
     
@@ -22,9 +22,7 @@ void mg::UserInterface::input_load_game(void) const {
         }
     }
 
-    if (choice == 1) {
-        std::cout << "PLACEHOLDER - Y\n";
-    }
+    return choice;
 }
 
 mg::Board mg::UserInterface::input_board(void) {

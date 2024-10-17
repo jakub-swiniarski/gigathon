@@ -43,7 +43,7 @@ mg::Board mg::UserInterface::input_board(void) {
     }
 
     while ((board_width * board_height) % 2 != 0) {
-        std::cout << "Liczba pol powinna byc liczba parzysta. Wprowadz rozmiar jeszcze raz: ";
+        std::cout << "Laczna liczba pol powinna byc parzysta. Wprowadz rozmiar jeszcze raz: ";
         std::cin >> board_width >> board_height;
     }
 

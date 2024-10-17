@@ -6,8 +6,8 @@
 mg::Board::Board(Vector size, bool make_random) 
     : matrix_width(size.first),
       matrix_height(size.second),
-      mask_matrix(size.second, std::vector<bool>(size.first, false)),
-      card_matrix(size.second, std::string(size.first, 0)) {
+      card_matrix(size.second, std::string(size.first, 0)),
+      mask_matrix(size.second, std::vector<bool>(size.first, false)) {
     if (make_random)
         card_matrix = generate_card_matrix(size);
 }

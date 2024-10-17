@@ -24,11 +24,11 @@ namespace mg {
     public:
         Board(Vector size, bool make_random);
 
-        char       get_card(Vector position) const;
-        bool       get_mask(Vector position) const;
-        int        get_card_count(void) const;
-        void       unmask_card(Vector position);
-        void       mask_card(Vector position);
+        char get_card(Vector position) const;
+        bool get_mask(Vector position) const;
+        int  get_card_count(void) const;
+        void unmask_card(Vector position);
+        void mask_card(Vector position);
     };
 }
 

@@ -12,16 +12,14 @@ namespace ani {
     using ColorMatrix = std::vector<std::vector<int>>; 
 
     class Frame {
-        Vector      size;
         CharMatrix  char_matrix;
         ColorMatrix color_matrix;
 
     public:
         Frame(Vector size, std::ifstream& file);
 
-        Vector get_size(void) const;
-        char   get_char(Vector position) const;
-        int    get_color(Vector position) const;
+        char get_char(Vector position) const;
+        int  get_color(Vector position) const;
     };
 }
 

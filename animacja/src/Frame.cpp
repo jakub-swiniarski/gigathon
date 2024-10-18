@@ -3,8 +3,7 @@
 #include "Frame.hpp"
 
 ani::Frame::Frame(Vector size, std::ifstream& file) 
-    : size(size),
-      char_matrix(size.second, std::string(size.first, 0)),
+    : char_matrix(size.second, std::string(size.first, 0)),
       color_matrix(size.second, std::vector<int>(size.first, 0)) {
     std::string line;
 
@@ -26,10 +25,6 @@ ani::Frame::Frame(Vector size, std::ifstream& file)
         for (int x = 0; x < size.first; x++)
             color_matrix[y][x] = line[x] - '0';
     }
-}
-
-ani::Vector ani::Frame::get_size(void) const {
-    return size;
 }
 
 char ani::Frame::get_char(Vector position) const {

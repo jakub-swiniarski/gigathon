@@ -13,3 +13,7 @@ ani::Animation::Animation(std::string filename) {
     for (int i = 0; i < n_frames; i++)
         frames.emplace_back(size, file);
 }
+
+void ani::Animation::play(void) const {
+    // TODO: invoke renderer
+}

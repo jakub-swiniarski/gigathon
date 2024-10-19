@@ -1,10 +1,6 @@
+#include <chrono>
 #include <iostream>
-
-#ifdef _WIN32
-#include <windows.h>
-#else
-#include <unistd.h>
-#endif // _WIN32
+#include <thread>
 
 #include "Renderer.hpp"
 
@@ -32,16 +28,8 @@ void ani::Renderer::render(const Frame& frame) const {
         }
         std::cout << '\n';
     }
-    wait(1);
+    std::this_thread::sleep_for(std::chrono::milliseconds(500));
     std::cout << colors.front();
-}
-
-void ani::Renderer::wait(int n_seconds) const {
-#ifdef _WIN32
-    Sleep(1000 * n_seconds);
-#else
-    sleep(n_seconds);
-#endif // _WIN32
 }
 
 void ani::Renderer::cmd_clear(void) const {

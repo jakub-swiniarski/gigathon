@@ -21,6 +21,7 @@ ani::Renderer::Renderer(Vector frame_size)
 
 void ani::Renderer::render(const Frame& frame) const {
     cmd_clear();
+    std::cout << '\a';
     for (int y = 0; y < frame_size.second; y++) {
         for (int x = 0; x < frame_size.first; x++) {
             std::cout << colors[frame.get_color({x, y})];

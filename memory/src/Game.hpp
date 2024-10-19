@@ -9,8 +9,8 @@ namespace mg {
         bool              is_running = false;
 
         void run(void);
-        void cmd_clear(void);
         void quit(void);
+        void cmd_clear(void) const;
 
     public:
         Game(void);

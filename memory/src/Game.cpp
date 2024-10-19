@@ -63,14 +63,14 @@ mg::Game::Game(void) {
     run();
 }
 
-void mg::Game::cmd_clear(void) {
+void mg::Game::quit(void) {
+    is_running = false;
+}
+
+void mg::Game::cmd_clear(void) const {
 #ifdef _WIN32
     std::system("cls");
 #else
     std::system("clear");
 #endif // _WIN32
-}
-
-void mg::Game::quit(void) {
-    is_running = false;
 }

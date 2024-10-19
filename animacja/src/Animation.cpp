@@ -20,5 +20,6 @@ void ani::Animation::play(void) const {
     
     Renderer renderer(frame_size);
 
-    renderer.render(frames[0]);
+    for (const auto& i : frames)
+        renderer.render(i);
 }

@@ -7,7 +7,7 @@
 
 namespace ani {
     class Animation {
-        Vector             size;
+        Vector             frame_size;
         std::vector<Frame> frames;
 
     public:

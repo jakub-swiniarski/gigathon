@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include "App.hpp"
 #include "Animation.hpp"
 

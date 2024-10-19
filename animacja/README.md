@@ -16,7 +16,7 @@ Windows
 ```shell
 cmake .
 cmake --build .
-.\animacja.txt
+.\animacja.exe
 ```
 
 ## Instrukcja

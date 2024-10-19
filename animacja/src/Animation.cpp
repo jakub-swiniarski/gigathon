@@ -18,8 +18,6 @@ ani::Animation::Animation(std::string filename) {
 }
 
 void ani::Animation::play(void) const {
-    // TODO: invoke renderer
-    
     Renderer renderer(frame_size);
 
     for (const auto& i : frames)

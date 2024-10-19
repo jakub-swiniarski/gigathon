@@ -1,4 +1,5 @@
 #include <fstream>
+#include <stdexcept>
 
 #include "Animation.hpp"
 #include "Renderer.hpp"
@@ -8,7 +9,8 @@ ani::Animation::Animation(std::string filename) {
     std::string line;
 
     int n_frames;
-    file >> frame_size.first >> frame_size.second >> n_frames;
+    if (!(file >> frame_size.first >> frame_size.second >> n_frames))
+        throw std::runtime_error("Nieprawidlowy opis animacji.");
     getline(file, line);
 
     for (int i = 0; i < n_frames; i++)

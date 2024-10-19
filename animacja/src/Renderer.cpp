@@ -24,4 +24,5 @@ void ani::Renderer::render(const Frame& frame) const {
         }
         std::cout << '\n';
     }
+    // TODO: color reset
 }

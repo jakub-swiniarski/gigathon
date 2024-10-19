@@ -4,17 +4,17 @@
 #include "Board.hpp"
 
 bool mg::UserInterface::input_choice(std::string question) const {
-    char input;
-    int  choice = -1;
+    std::string input;
+    int         choice = -1;
     
     while (choice == -1) {
         std::cout << question <<" (T/N): ";
         std::cin >> input;
-        if (input == 'T'
-         || input == 't')
+        if (input[0] == 'T'
+         || input[0] == 't')
             choice = 1;
-        else if (input == 'N'
-              || input == 'n')
+        else if (input[0] == 'N'
+              || input[0] == 'n')
             choice = 0;
         else {
             std::cout << "Nieprawidlowy wybor. ";

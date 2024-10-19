@@ -1,5 +1,11 @@
 #include <iostream>
 
+#ifdef _WIN32
+#include <windows.h>
+#else
+#include <unistd.h>
+#endif // _WIN32
+
 #include "Renderer.hpp"
 
 ani::Renderer::Renderer(Vector frame_size)
@@ -18,6 +24,7 @@ ani::Renderer::Renderer(Vector frame_size)
 }
 
 void ani::Renderer::render(const Frame& frame) const {
+    cmd_clear();
     for (int y = 0; y < frame_size.second; y++) {
         for (int x = 0; x < frame_size.first; x++) {
             std::cout << colors[frame.get_color({x, y})];
@@ -25,5 +32,22 @@ void ani::Renderer::render(const Frame& frame) const {
         }
         std::cout << '\n';
     }
+    wait(1);
     std::cout << colors.front();
+}
+
+void ani::Renderer::wait(int n_seconds) const {
+#ifdef _WIN32
+    Sleep(1000 * n_seconds);
+#else
+    sleep(n_seconds);
+#endif // _WIN32
+}
+
+void ani::Renderer::cmd_clear(void) const {
+#ifdef _WIN32
+    std::system("cls");
+#else
+    std::system("clear");
+#endif // _WIN32
 }

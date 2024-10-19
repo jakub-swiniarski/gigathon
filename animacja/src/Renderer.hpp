@@ -15,6 +15,8 @@ namespace ani {
         Renderer(Vector frame_size);
 
         void render(const Frame& frame) const;
+        void wait(int n_seconds) const;
+        void cmd_clear(void) const;
     };
 }
 

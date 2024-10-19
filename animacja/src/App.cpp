@@ -3,16 +3,7 @@
 
 void ani::App::run(void) {
     Animation animation("animacja.txt");
-
-    is_running = true;
-    while (is_running) {
-        animation.play();
-        quit();
-    }
-}
-
-void ani::App::quit(void) {
-    is_running = false;
+    animation.play();
 }
 
 ani::App::App(void) {

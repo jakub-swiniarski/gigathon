@@ -3,10 +3,7 @@
 
 namespace ani {
     class App {
-        bool is_running = false;
-
         void run(void);
-        void quit(void);
 
     public:
         App(void);

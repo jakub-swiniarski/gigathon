@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 
 #include "UserInterface.hpp"
 #include "Board.hpp"
@@ -39,6 +40,13 @@ mg::Board mg::UserInterface::input_board(void) {
     std::cout << "Wprowadz rozmiar planszy (2 liczby oddzielone spacja): ";
     std::cin >> width >> height;
 
+    while (std::cin.fail()) {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Niepoprawne dane. Wprowadz pozycje jeszcze raz: ";
+        std::cin >> width >> height;
+    }
+
     while (width <= 0 || height <= 0) {
         std::cout << "Liczby powinny byc dodatnie. Wprowadz rozmiar jeszcze raz: ";
         std::cin >> width >> height;
@@ -58,6 +66,13 @@ std::pair<int, int> mg::UserInterface::input_card_position(const Board& board) c
     int x, y;
     std::cout << "Wprowadz pozycje karty (x, y): ";
     std::cin >> x >> y;    
+
+    while (std::cin.fail()) {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Niepoprawne dane. Wprowadz pozycje jeszcze raz: ";
+        std::cin >> x >> y;
+    }
 
     while (x < 0 || y < 0) {
         std::cout << "Wspolrzedne nie moga byc ujemne. Wprowadz pozycje jeszcze raz: ";

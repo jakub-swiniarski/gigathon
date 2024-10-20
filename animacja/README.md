@@ -26,3 +26,14 @@ Program wczytuje animację z pliku "animacja.txt". Plik powinien zawierać opis 
 <zawartość n-tej klatki>
 <kolory n-tej klatki>
 ```
+Kolory są zdefiniowane za pomocą cyfr w następujący sposób:
+```shell
+1 - czarny
+2 - czerwony
+3 - zielony
+4 - żółty
+5 - niebieski
+6 - magenta
+7 - cyjan
+8 - biały
+```

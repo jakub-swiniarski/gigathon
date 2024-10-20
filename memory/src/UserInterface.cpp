@@ -129,6 +129,6 @@ void mg::UserInterface::print_summary(const Player* players) const {
 
 void mg::UserInterface::wait_for_input(void) const {
     std::cout << "Wcisnij dowolny przycisk, aby kontynuowac...\n";
-    std::cin.get();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cin.get();
 }

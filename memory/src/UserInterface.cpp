@@ -8,7 +8,7 @@ bool mg::UserInterface::input_choice(std::string question) const {
     int         choice = -1;
     
     while (choice == -1) {
-        std::cout << question <<" (T/N): ";
+        std::cout << question << " (T/N): ";
         std::cin >> input;
         if (input[0] == 'T'
          || input[0] == 't')

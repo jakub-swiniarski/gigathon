@@ -5,7 +5,7 @@
 
 mg::CardMatrix mg::Board::generate_card_matrix(Vector size) const {
     auto        [width, height] = size;
-    char        cur_card        = 'A';
+    char        cur_card        = first_card;
     CardMatrix  matrix(height, std::string(width, 0));
     std::string flat_matrix(height * width, 0);
 

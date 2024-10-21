@@ -24,7 +24,8 @@ namespace mg {
 
     public:
 
-        static constexpr int max_card_count = ('~' - 'A' + 1) * 2;
+        static constexpr char first_card     = 'A';
+        static constexpr int  max_card_count = ('~' - first_card + 1) * 2;
 
         Board(Vector size, bool make_random);
 

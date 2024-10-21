@@ -20,11 +20,15 @@ cmake --build .
 ```
 
 ## Instrukcja
-Program wczytuje animację z pliku "animacja.txt". Plik powinien zawierać opis animacji w następującym formacie:
+Program wczytuje wstępne informacje o animacji z pliku animacja.txt. Format tego pliku wygląda następująco:
 ```shell
 <szerokość klatki> <wysokość klatki> <ilość klatek>
-<zawartość n-tej klatki>
-<kolory n-tej klatki>
+<katalog zawierający klatki animacji>
+```
+Następnie program uda się do katalogu zawierającego klatki animacji. Opis n-tej klatki znajduje się w pliku n.txt (0.txt - opis zerowej klatki). Każda klatka opisana za pomocą następującego formatu:
+```shell
+<zawartosc klatki>
+<kolory klatki>
 ```
 Kolory są zdefiniowane za pomocą cyfr w następujący sposób:
 ```shell

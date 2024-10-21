@@ -1,7 +1,6 @@
 #ifndef FRAME_HPP
 #define FRAME_HPP
 
-#include <fstream>
 #include <string>
 #include <utility>
 #include <vector>
@@ -16,7 +15,7 @@ namespace ani {
         ColorMatrix color_matrix;
 
     public:
-        Frame(Vector size, std::ifstream& file);
+        Frame(Vector size, std::string filename);
 
         char get_char(Vector position) const;
         int  get_color(Vector position) const;

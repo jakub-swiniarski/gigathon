@@ -1,11 +1,16 @@
+#include <fstream>
 #include <stdexcept>
 
 #include "Frame.hpp"
 
-ani::Frame::Frame(Vector size, std::ifstream& file) 
+ani::Frame::Frame(Vector size, std::string filename) 
     : char_matrix(size.second, std::string(size.first, 0)),
       color_matrix(size.second, std::vector<int>(size.first, 0)) {
-    std::string line;
+    std::ifstream file(filename);
+    std::string   line;
+
+    if (!file.is_open())
+        throw std::runtime_error("Nie udalo sie otworzyc pliku klatki.");
 
     for (int y = 0; y < size.second; y++) {
         getline(file, line);

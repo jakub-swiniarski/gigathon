@@ -1,4 +1,5 @@
 #include <fstream>
+#include <sstream>
 #include <stdexcept>
 
 #include "Animation.hpp"
@@ -7,14 +8,23 @@
 ani::Animation::Animation(std::string filename) {
     std::ifstream file(filename);
     std::string   line;
+    std::string   frame_dir;
     int           n_frames;
     
+    if (!file.is_open())
+        throw std::runtime_error("Nie udalo sie otworzyc pliku animacji.");
+
     if (!(file >> frame_size.first >> frame_size.second >> n_frames))
         throw std::runtime_error("Nieprawidlowy opis animacji.");
-    getline(file, line);
+    std::getline(file, line);
+    std::getline(file, frame_dir);
 
-    for (int i = 0; i < n_frames; i++)
-        frames.emplace_back(frame_size, file);
+    frames.reserve(n_frames);
+    for (int i = 0; i < n_frames; i++) {
+        std::ostringstream oss;
+        oss << frame_dir << "/" << i << ".txt";
+        frames.emplace_back(frame_size, oss.str());
+    }
 }
 
 void ani::Animation::play(void) const {

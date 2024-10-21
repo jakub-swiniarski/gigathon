@@ -27,8 +27,8 @@ Program wczytuje wstępne informacje o animacji z pliku animacja.txt. Format teg
 ```
 Następnie program uda się do katalogu zawierającego klatki animacji. Opis n-tej klatki znajduje się w pliku n.txt (0.txt - opis zerowej klatki). Każda klatka opisana za pomocą następującego formatu:
 ```shell
-<zawartosc klatki>
-<kolory klatki>
+<zawartosc klatki - macierz znaków>
+<kolory klatki - macierz cyfr>
 ```
 Kolory są zdefiniowane za pomocą cyfr w następujący sposób:
 ```shell

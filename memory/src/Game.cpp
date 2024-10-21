@@ -48,7 +48,6 @@ void mg::Game::run(void) {
 
         if (players[0].get_score() + players[1].get_score() >= board.get_card_count() / 2) {
             quit();
-            cmd_clear();
             user_interface.print_summary(players);
             break;
         }

@@ -43,6 +43,7 @@ void mg::Game::run(void) {
         else {
             for (int i = 0; i < 2; i++)
                 board.mask_card(positions[i]);
+            whose_turn = (whose_turn + 1) % 2;
         }
 
         if (players[0].get_score() + players[1].get_score() >= board.get_card_count() / 2) {
@@ -51,8 +52,6 @@ void mg::Game::run(void) {
             user_interface.print_summary(players);
             break;
         }
-
-        whose_turn = (whose_turn + 1) % 2;
 
         if (user_interface.input_save_game())
             game_state_manager.save(board, players, whose_turn);

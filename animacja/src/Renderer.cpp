@@ -25,7 +25,7 @@ void ani::Renderer::render(const Frame& frame) const {
         }
         std::cout << '\n';
     }
-    std::this_thread::sleep_for(std::chrono::milliseconds(500));
+    std::this_thread::sleep_for(std::chrono::milliseconds(delay_ms));
     print_color(0);
 }
 

@@ -14,6 +14,7 @@ namespace ani {
         std::vector<std::string> colors;
 
         static constexpr int n_colors = 9;
+        static constexpr int delay_ms = 500;
 
     public:
         Renderer(Vector frame_size);

@@ -57,6 +57,11 @@ mg::Board mg::UserInterface::input_board(void) {
         std::cin >> width >> height;
     }
 
+    while (width * height > Board::max_card_count) {
+        std::cout << "Plansza jest zbyt wielka. Wprowadz rozmiar jeszcze raz: ";
+        std::cin >> width >> height;
+    }
+
     std::cout << "Utworzono plansze o rozmiarze " << width << " x " << height << "!\n\n";
 
     return Board({ width, height }, true);

@@ -14,8 +14,8 @@ namespace mg {
     class Board {
         friend class GameStateManager;
 
-        int matrix_width;
-        int matrix_height;
+        int        matrix_width;
+        int        matrix_height;
         CardMatrix card_matrix;
         MaskMatrix mask_matrix;
 
@@ -23,6 +23,9 @@ namespace mg {
         void       resize(Vector size);
 
     public:
+
+        static constexpr int max_card_count = ('~' - 'A' + 1) * 2;
+
         Board(Vector size, bool make_random);
 
         char   get_card(Vector position) const;

@@ -6,9 +6,9 @@
 
 ani::Animation::Animation(std::string filename) {
     std::ifstream file(filename);
-    std::string line;
-
-    int n_frames;
+    std::string   line;
+    int           n_frames;
+    
     if (!(file >> frame_size.first >> frame_size.second >> n_frames))
         throw std::runtime_error("Nieprawidlowy opis animacji.");
     getline(file, line);

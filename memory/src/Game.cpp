@@ -45,7 +45,7 @@ void mg::Game::run(void) {
                 board.mask_card(positions[i]);
         }
 
-        if (players[0].get_score() * 2 + players[1].get_score() * 2 >= board.get_card_count()) {
+        if (players[0].get_score() + players[1].get_score() >= board.get_card_count() / 2) {
             quit();
             cmd_clear();
             user_interface.print_summary(players);

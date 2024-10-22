@@ -32,9 +32,9 @@ Jeśli jednak postanowimy rozpocząć nową grę, zostaniemy poproszeni o podani
 Pierwsza liczba oznacza szerokość, a druga - wysokość. <br>
 Następnie gracze na zmianę podają współrzędne kart, które chcą sprawdzić. Współrzędne karty podaje się w taki sam sposób, jak rozmiar planszy.
 ```shell
-1 2
+2 3
 ```
-Pierwsza liczba oznacza współrzędną x, a druga - współrzędną y. Karta w lewym górnym rogu planszy ma współrzędne (0, 0). Karta (1, 2) została oznaczona literą "O":
+Pierwsza liczba oznacza współrzędną x, a druga - współrzędną y. Karta w lewym górnym rogu planszy ma współrzędne (1, 1). Karta (2, 3) została oznaczona literą "O":
 ```shell
 ####
 ####

@@ -43,7 +43,7 @@ void mg::GameStateManager::load(Board& board, Player* players, int& whose_turn) 
         throw std::runtime_error("Nie udalo sie odczytac punktow graczy.");
 
     if (!(file >> whose_turn))
-        throw std::runtime_error("Nie udalo sie odczytac, czyja kolej");
+        throw std::runtime_error("Nie udalo sie odczytac, czyja kolej.");
 }
 
 void mg::GameStateManager::save(Board& board, Player* players, int whose_turn) const {

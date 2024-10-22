@@ -122,7 +122,7 @@ void mg::UserInterface::print_equal_position_warning(void) const {
 
 void mg::UserInterface::print_points(const Player* players) const {
     for (int i = 0; i < 2; i++)
-        std::cout << "Punkty gracza nr " << i << ": " << players[i].get_score() << '\n';
+        std::cout << "Punkty gracza nr " << i + 1 << ": " << players[i].get_score() << '\n';
 }
 
 void mg::UserInterface::print_whose_turn(int index) const {

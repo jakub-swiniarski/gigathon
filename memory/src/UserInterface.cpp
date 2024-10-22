@@ -76,7 +76,9 @@ std::pair<int, int> mg::UserInterface::input_card_position(const Board& board) c
 
     while (true) {
         std::cout << "Wprowadz pozycje karty (x, y): ";
-        std::cin >> x >> y;    
+        std::cin >> x >> y;
+        x--;
+        y--;
         
         if (std::cin.fail()) {
             std::cin.clear();
@@ -131,9 +133,9 @@ void mg::UserInterface::print_summary(const Player* players) const {
     if (players[0].get_score() == players[1].get_score())
         std::cout << "Remis!\n";
     else if (players[0].get_score() > players[1].get_score())
-        std::cout << "Wygral gracz nr 0.\n";
-    else
         std::cout << "Wygral gracz nr 1.\n";
+    else
+        std::cout << "Wygral gracz nr 2.\n";
     print_points(players);
 }
 

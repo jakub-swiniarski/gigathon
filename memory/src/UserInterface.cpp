@@ -77,8 +77,6 @@ std::pair<int, int> mg::UserInterface::input_card_position(const Board& board) c
     while (true) {
         std::cout << "Wprowadz pozycje karty (x, y): ";
         std::cin >> x >> y;
-        x--;
-        y--;
         
         if (std::cin.fail()) {
             std::cin.clear();
@@ -86,6 +84,9 @@ std::pair<int, int> mg::UserInterface::input_card_position(const Board& board) c
             std::cout << "Niepoprawne dane. ";
             continue;
         }
+
+        x--;
+        y--;
 
         if (x < 0 || y < 0
          || x >= board.get_size().first || y >= board.get_size().second) {

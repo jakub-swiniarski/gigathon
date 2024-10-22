@@ -126,7 +126,7 @@ void mg::UserInterface::print_points(const Player* players) const {
 }
 
 void mg::UserInterface::print_whose_turn(int index) const {
-    std::cout << "Teraz kolej gracza nr " << index << ".\n";
+    std::cout << "Teraz kolej gracza nr " << index + 1 << ".\n";
 }
 
 void mg::UserInterface::print_summary(const Player* players) const {

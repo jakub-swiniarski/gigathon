@@ -37,29 +37,33 @@ bool mg::UserInterface::input_save_game(void) const {
 mg::Board mg::UserInterface::input_board(void) {
     int width, height;
 
-    std::cout << "Wprowadz rozmiar planszy (2 liczby oddzielone spacja): ";
-    std::cin >> width >> height;
-
-    while (std::cin.fail()) {
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::cout << "Niepoprawne dane. Wprowadz pozycje jeszcze raz: ";
+    while (true) {
+        std::cout << "Wprowadz rozmiar planszy (2 liczby oddzielone spacja): ";
         std::cin >> width >> height;
-    }
 
-    while (width <= 0 || height <= 0) {
-        std::cout << "Liczby powinny byc dodatnie. Wprowadz rozmiar jeszcze raz: ";
-        std::cin >> width >> height;
-    }
+        if (std::cin.fail()) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Niepoprawne dane. ";
+            continue;
+        }
 
-    while ((width * height) % 2 != 0) {
-        std::cout << "Laczna liczba pol powinna byc parzysta. Wprowadz rozmiar jeszcze raz: ";
-        std::cin >> width >> height;
-    }
+        if (width <= 0 || height <= 0) {
+            std::cout << "Liczby powinny byc dodatnie. ";
+            continue;
+        }
 
-    while (width * height > Board::max_card_count) {
-        std::cout << "Plansza jest zbyt wielka. Wprowadz rozmiar jeszcze raz: ";
-        std::cin >> width >> height;
+        if ((width * height) % 2 != 0) {
+            std::cout << "Laczna liczba pol powinna byc parzysta. ";
+            continue;
+        }
+        
+        if (width * height > Board::max_card_count) {
+            std::cout << "Plansza jest zbyt wielka. ";
+            continue;
+        }
+
+        break;
     }
 
     std::cout << "Utworzono plansze o rozmiarze " << width << " x " << height << "!\n\n";
@@ -69,29 +73,30 @@ mg::Board mg::UserInterface::input_board(void) {
 
 std::pair<int, int> mg::UserInterface::input_card_position(const Board& board) const {
     int x, y;
-    std::cout << "Wprowadz pozycje karty (x, y): ";
-    std::cin >> x >> y;    
 
-    while (std::cin.fail()) {
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::cout << "Niepoprawne dane. Wprowadz pozycje jeszcze raz: ";
-        std::cin >> x >> y;
-    }
+    while (true) {
+        std::cout << "Wprowadz pozycje karty (x, y): ";
+        std::cin >> x >> y;    
+        
+        if (std::cin.fail()) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Niepoprawne dane. ";
+            continue;
+        }
 
-    while (x < 0 || y < 0) {
-        std::cout << "Wspolrzedne nie moga byc ujemne. Wprowadz pozycje jeszcze raz: ";
-        std::cin >> x >> y;
-    }
+        if (x < 0 || y < 0
+         || x >= board.get_size().first || y >= board.get_size().second) {
+            std::cout << "Wspolrzedne nie moga wykraczac poza plansze. ";
+            continue;
+        }
 
-    while (x >= board.get_size().first || y >= board.get_size().second) {
-        std::cout << "Wspolrzedne nie moga wykraczac poza plansze. Wprowadz pozycje jeszcze raz: ";
-        std::cin >> x >> y;
-    }
+        if (board.get_mask({ x, y })) {
+            std::cout << "Karta zostala juz dopasowana.  ";
+            continue;
+        }
 
-    if (board.get_mask({ x, y })) {
-        std::cout << "Karta zostala juz dopasowana. Wprowadz pozycje jeszcze raz: ";
-        std::cin >> x >> y;
+        break;
     }
 
     return { x, y };

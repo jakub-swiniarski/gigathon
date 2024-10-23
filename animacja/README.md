@@ -32,6 +32,7 @@ Następnie program uda się do katalogu zawierającego klatki animacji. Opis n-t
 ```
 Kolory są zdefiniowane za pomocą cyfr w następujący sposób:
 ```shell
+0 - kolor domyślny
 1 - czarny
 2 - czerwony
 3 - zielony

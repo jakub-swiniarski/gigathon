@@ -6,7 +6,7 @@
 namespace ani {
     class UserInterface {
     public:
-        std::string input_filename(void) const;
+        std::string input_filepath(void) const;
     };
 }
 

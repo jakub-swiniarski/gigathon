@@ -12,7 +12,7 @@ namespace ani {
         Renderer           renderer;
 
     public:
-        Animation(std::string filename);
+        Animation(std::string filepath);
 
         void play(void) const;
     };

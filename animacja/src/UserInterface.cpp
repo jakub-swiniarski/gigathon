@@ -2,10 +2,10 @@
 
 #include "UserInterface.hpp"
 
-std::string ani::UserInterface::input_filename(void) const {
-    std::string filename;
+std::string ani::UserInterface::input_filepath(void) const {
+    std::string filepath;
     std::cout << "Wprowadz ścieżkę do pliku animacji: ";
-    std::cin >> filename;
+    std::cin >> filepath;
 
-    return filename;
+    return filepath;
 }

@@ -5,8 +5,8 @@
 #include "Animation.hpp"
 #include "Renderer.hpp"
 
-ani::Animation::Animation(std::string filename) {
-    std::ifstream file(filename);
+ani::Animation::Animation(std::string filepath) {
+    std::ifstream file(filepath);
     std::string   frame_dir;
     Vector        frame_size;
     int           n_frames;

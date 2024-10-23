@@ -12,7 +12,7 @@ void ani::App::quit(int signum) {
 
 void ani::App::run(void) {
     UserInterface user_interface;
-    Animation     animation(user_interface.input_filename());
+    Animation     animation(user_interface.input_filepath());
     
     while (true)
         animation.play();

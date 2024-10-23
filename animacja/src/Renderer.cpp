@@ -33,7 +33,7 @@ void ani::Renderer::print_color(int index) const {
     std::cout << color_prefix << colors[index] << color_suffix;
 }
 
-void ani::Renderer::cmd_clear(void) const {
+void ani::Renderer::cmd_clear(void) {
 #ifdef _WIN32
     std::system("cls");
 #else

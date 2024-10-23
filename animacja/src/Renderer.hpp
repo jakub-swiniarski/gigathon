@@ -19,10 +19,10 @@ namespace ani {
     public:
         Renderer(void);
 
-        void render(const Frame& frame) const;
-        void print_color(int index) const;
-        void cmd_clear(void) const;
-        void set_frame_size(Vector size);
+        void        render(const Frame& frame) const;
+        void        print_color(int index) const;
+        static void cmd_clear(void);
+        void        set_frame_size(Vector size);
     };
 }
 

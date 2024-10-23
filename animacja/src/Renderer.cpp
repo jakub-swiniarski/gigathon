@@ -5,8 +5,8 @@
 
 #include "Renderer.hpp"
 
-ani::Renderer::Renderer(Vector frame_size)
-    : frame_size(frame_size),
+ani::Renderer::Renderer(void)
+    : frame_size({0, 0}),
       color_prefix("\033["),
       color_suffix("m"),
       colors(n_colors) {
@@ -39,4 +39,8 @@ void ani::Renderer::cmd_clear(void) const {
 #else
     std::system("clear");
 #endif // _WIN32
+}
+
+void ani::Renderer::set_frame_size(Vector size) {
+    frame_size = size;
 }

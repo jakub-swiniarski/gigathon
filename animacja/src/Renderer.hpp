@@ -17,11 +17,12 @@ namespace ani {
         static constexpr int delay_ms = 500;
 
     public:
-        Renderer(Vector frame_size);
+        Renderer(void);
 
         void render(const Frame& frame) const;
         void print_color(int index) const;
         void cmd_clear(void) const;
+        void set_frame_size(Vector size);
     };
 }
 

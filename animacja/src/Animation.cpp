@@ -8,6 +8,7 @@
 ani::Animation::Animation(std::string filename) {
     std::ifstream file(filename);
     std::string   frame_dir;
+    Vector        frame_size;
     int           n_frames;
     
     if (!file.is_open())
@@ -27,11 +28,11 @@ ani::Animation::Animation(std::string filename) {
         oss << frame_dir << "/" << i << ".txt";
         frames.emplace_back(frame_size, oss.str());
     }
+
+    renderer.set_frame_size(frame_size);
 }
 
 void ani::Animation::play(void) const {
-    Renderer renderer(frame_size);
-
     for (const auto& i : frames)
         renderer.render(i);
 }

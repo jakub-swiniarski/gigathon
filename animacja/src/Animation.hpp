@@ -4,11 +4,12 @@
 #include <vector>
 
 #include "Frame.hpp"
+#include "Renderer.hpp"
 
 namespace ani {
     class Animation {
-        Vector             frame_size;
         std::vector<Frame> frames;
+        Renderer           renderer;
 
     public:
         Animation(std::string filename);

@@ -3,7 +3,9 @@
 
 void ani::App::run(void) {
     Animation animation("animacja.txt");
-    animation.play();
+    
+    while (true)
+        animation.play();
 }
 
 ani::App::App(void) {

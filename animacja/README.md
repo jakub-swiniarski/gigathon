@@ -41,3 +41,4 @@ Kolory są zdefiniowane za pomocą cyfr w następujący sposób:
 7 - cyjan
 8 - biały
 ```
+Aby zatrzymać odtwarzanie animacji, należy wcisnąć kombinację klawiszy CTRL + C;

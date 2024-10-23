@@ -42,4 +42,5 @@ Kolory są zdefiniowane za pomocą cyfr w następujący sposób:
 7 - cyjan
 8 - biały
 ```
+Przykladowy plik animacji ("animacja.txt") i katalog klatek ("klatki") znajdują się w katalogu tego projektu.
 Aby zatrzymać odtwarzanie animacji, należy wcisnąć kombinację klawiszy CTRL + C;

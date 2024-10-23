@@ -20,10 +20,10 @@ cmake --build .
 ```
 
 ## Instrukcja
-Na początku program zapyta nas o podanie nazwy pliku animacji. Format tego pliku wygląda następująco:
+Na początku program zapyta nas o podanie ścieżki do pliku animacji. Format tego pliku wygląda następująco:
 ```shell
 <szerokość klatek> <wysokość klatek> <ilość klatek>
-<nazwa katalogu zawierającego klatki animacji>
+<ścieżka do katalogu zawierającego klatki animacji>
 ```
 Następnie program uda się do katalogu zawierającego klatki animacji. Opis n-tej klatki znajduje się w pliku n.txt (0.txt - opis zerowej klatki). Każda klatka opisana za pomocą następującego formatu:
 ```shell

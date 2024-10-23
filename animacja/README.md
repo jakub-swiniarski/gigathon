@@ -20,7 +20,7 @@ cmake --build .
 ```
 
 ## Instrukcja
-Program wczytuje wstępne informacje o animacji z pliku animacja.txt. Format tego pliku wygląda następująco:
+Na początku program zapyta nas o podanie nazwy pliku animacji. Format tego pliku wygląda następująco:
 ```shell
 <szerokość klatki> <wysokość klatki> <ilość klatek>
 <katalog zawierający klatki animacji>

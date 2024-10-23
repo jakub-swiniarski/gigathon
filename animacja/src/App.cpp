@@ -3,6 +3,7 @@
 #include "App.hpp"
 #include "Animation.hpp"
 #include "Renderer.hpp"
+#include "UserInterface.hpp"
 
 void ani::App::quit(int signum) {
     ani::Renderer::cmd_clear();
@@ -10,7 +11,8 @@ void ani::App::quit(int signum) {
 }
 
 void ani::App::run(void) {
-    Animation animation("animacja.txt");
+    UserInterface user_interface;
+    Animation     animation(user_interface.input_filename());
     
     while (true)
         animation.play();

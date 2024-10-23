@@ -34,7 +34,7 @@ bool mg::UserInterface::input_save_game(void) const {
     return input_choice("Czy chcesz zapisac stan gry?");
 }
 
-mg::Board mg::UserInterface::input_board(void) {
+mg::Board mg::UserInterface::input_board(void) const {
     int width, height;
 
     while (true) {
